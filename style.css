@@ -1,0 +1,159 @@
+:root {
+  --primaryFont: "Inter",
+    sans-serif;
+  --secFont: "Lexend Deca",
+    sans-serif;
+
+  /* ## Primary */
+  /* (main background) */
+  --navy950: hsl(233, 47%, 7%);
+  /* (card background) */
+  --blue950: hsl(244, 37%, 16%);
+  /* (accent) */
+  --purple500: hsl(277, 64%, 61%);
+
+  /* ### Neutral */
+  /* (main heading, stats) */
+  --whiteOne: hsl(0, 0%, 100%);
+  /* (main paragraph) */
+  --whiteTwo: hsla(0, 0%, 100%, 0.75);
+  /* (stat headings) */
+  --whiteThree: hsla(0, 0%, 100%, 0.6);
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--navy950);
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.mobile_img {
+  display: none;
+}
+
+.card {
+  background-color: var(--blue950);
+  margin: 1rem;
+  max-width: 960px;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  border-radius: 1rem;
+}
+
+.card .left {
+  padding: 3.5rem;
+}
+
+.card .left h1 {
+  color: var(--whiteOne);
+  font-size: 2.35rem;
+  font-family: var(--primaryFont);
+  margin-bottom: 1.5rem;
+}
+
+.card .left h1 span {
+  color: var(--purple500);
+}
+
+.card .left .paragraph {
+  margin-bottom: 3rem;
+  font-family: var(--secFont);
+  color: var(--whiteThree);
+  line-height: 1.6;
+}
+
+.card .left .stats {
+  font-family: var(--primaryFont);
+  display: flex;
+  gap: 3rem;
+}
+
+.card .left .stats .num {
+  color: var(--whiteOne);
+  margin-bottom: .25rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.card .left .stats .topic {
+  color: var(--whiteThree);
+  font-size: .9rem;
+}
+
+.card .right {
+  position: relative;
+}
+
+.card .right::after {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background-color: rgb(79, 3, 121, 0.6);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  border-radius: 0 1rem 1rem 0;
+}
+
+.card .right img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0 1rem 1rem 0;
+}
+
+/* Media Query */
+
+@media (max-width:768px) {
+  .card {
+    text-align: center;
+    grid-template-columns: 1fr;
+    margin: 1rem 2rem 5rem 2rem;
+    min-height: 100vh;
+  }
+
+  .card .left {
+    grid-row: 2;
+    padding: 2.5rem;
+  }
+
+  .card .left .stats {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .desktop_img {
+    display: none;
+  }
+
+  .mobile_img {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+
+  .card .right img {
+    border-radius: 1rem 1rem 0 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  .card .right::after {
+    border-radius: 1rem 1rem 0 0
+  }
+}
